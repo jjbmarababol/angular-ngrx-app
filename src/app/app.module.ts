@@ -4,8 +4,18 @@ import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { counterReducer } from './counter.reducer';
 import { MyCounterComponent } from './my-counter/my-counter.component';
+import { booksReducer } from './state/books.reducers';
+import { collectionReducer } from './state/collection.reducer';
+
 @NgModule({
-  imports: [BrowserModule, StoreModule.forRoot({ count: counterReducer })],
+  imports: [
+    BrowserModule,
+    StoreModule.forRoot({
+      count: counterReducer,
+      books: booksReducer,
+      collection: collectionReducer,
+    }),
+  ],
   declarations: [AppComponent, MyCounterComponent],
   bootstrap: [AppComponent],
 })
